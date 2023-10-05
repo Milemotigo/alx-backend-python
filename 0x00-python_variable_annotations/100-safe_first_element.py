@@ -5,11 +5,7 @@
 from typing import Sequence, Union, Any, Optional
 
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
-    """
-        Safely retrieve the first element of a sequence.
-
-        Args:
-            lst (Sequence[Any]): A sequence (e.g., list, tuple) of any type.
+    """Safely retrieve the first element of a sequence.
     """
     if lst:
         return lst[0]
