@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from typing import List, Optional
+from typing import List, Tuple
 
-def zoom_array(lst: List[int], factor: int = 2) -> List[int]:
+def zoom_array(lst: Tuple[int, ...], factor: int = 2) -> List[int]:
     """
         Zoom in on an array by repeating its elements.
 
