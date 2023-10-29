@@ -4,7 +4,8 @@
 """
 
 import unittest
-from utils import access_nested_map
+from unittest.mock import patch, Mock
+from utils import access_nested_map, get_json
 from parameterized import parameterized
 
 
@@ -27,6 +28,23 @@ class TestAccessNestedMap(unittest.TestCase):
         """manager to test that a KeyError"""
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
+
+
+@parameterized.expand([
+    ("http://example.com", {"payload": True}),
+    ("http://holberton.io", {"payload": False}),
+])
+@patch("requests.get")
+class TestGetJson(unittest.TestCase):
+    def test_get_json(self, test_url, payload, mock_data):
+        """ Mock HTTP calls"""
+        mock_response = Mock()
+        mock_response.json.return_value = payload
+        mock_data.return_value = mock_response
+        result = get_json(test_url)
+        mock_data.assert_called_once_with(test_url)
+
+        self.assertEqual(result, payload)
 
 
 if __name__ == "__main__":
