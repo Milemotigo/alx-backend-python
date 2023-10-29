@@ -65,6 +65,7 @@ class TestGetJson(unittest.TestCase):
         mockrequests.assert_called_once_with(test_url)
         self.assertEqual(result, payload)
 
+
 class TestMemoize(unittest.TestCase):
     class TestClass:
 
