@@ -67,13 +67,16 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
+    """mock a method"""
     class TestClass:
 
         def a_method(self):
+            """mock a method"""
             return 42
 
         @memoize
         def a_property(self):
+            """mock a method"""
             return self.a_method()
 
     @patch.object(TestClass, "a_method")
