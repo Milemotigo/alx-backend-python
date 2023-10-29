@@ -71,7 +71,7 @@ class TestMemoize(unittest.TestCase):
     class TestClass:
 
         def a_method(self):
-            """mock a method"""
+            """to mock a_method. Test that when calling a_property twice"""
             return 42
 
         @memoize
@@ -81,7 +81,7 @@ class TestMemoize(unittest.TestCase):
 
     @patch.object(TestClass, "a_method")
     def test_memoize(self, mockmethod):
-        """mock a method"""
+        """to mock a_method. Test that when calling a_property twice"""
         test = self.TestClass()
 
         test.a_property()
